@@ -5,8 +5,9 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-model = pickle.load(open(r"C:\Users\ACH\OneDrive - OFPPT\Documents\AI\Machine_Learning\Projet_Mushrooms\random_forest_model.pkl", "rb"))
-
+with open("random_forest_model.pkl", "rb") as file:
+    model = pickle.load(file)
+    
 st.title("Prédiction de champignons")
 st.header("Veuillez entrer les informations sur le champignon :")
 
@@ -235,7 +236,9 @@ if st.button('Prédire'):
 
 
 # Visualisation des données
-data = pd.read_csv(r"C:\Users\ACH\OneDrive - OFPPT\Documents\AI\Machine_Learning\Projet_Mushrooms\mushrooms.csv")
+with open("mushrooms.csv", "rb") as fi:
+    data = pickle.load(fi)
+# data = pd.read_csv(r"C:\Users\ACH\OneDrive - OFPPT\Documents\AI\Machine_Learning\Projet_Mushrooms\mushrooms.csv")
 st.title("Visualisation des données sur les champignons")
 
 
